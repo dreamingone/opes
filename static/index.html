@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" href="/static/style.css" type="text/css" />
+	</head>
+	<body>
+		<div class="menu">
+			<a href="javascript:onCompose()">Compose</a>
+			<a href="javascript:keypair_dialog.show()">My Key Pair</a>
+		</div>
+		<div class="content">
+			<div id="folders"></div>
+			<div id="dialogues"></div>
+			<div class="mail">
+				<div class="menu">
+					<a href="javascript:onReply()">Reply</a>
+					<a href="javascript:onForward()">Forward</a>
+					<a href="javascript:onDelete()">Delete</a>
+				</div>
+				<div class="reply">
+					<textarea rows="5"></textarea><br/>
+					<button>Reply to All</button>
+					<button>Reply</button>
+				</div>
+				<div id="messages"></div>
+			</div>
+		</div>
+		<div id="dialogs">
+			<div id="composition">
+				<table>
+					<tr>
+						<td><label>From:</label></td><td><input type="text" id="comp-from" /></td>
+					</tr><tr>
+						<td><label>To:</label></td><td><input type="text" id="comp-to" /></td>
+					</tr><tr>
+						<td><label>CC:</label></td><td><input type="text" id="comp-cc" /></td>
+					</tr><tr>
+						<td><label>BCC:</label></td><td><input type="text" id="comp-bcc" /></td>
+					</tr><tr>
+						<td><label>Subject:</label></td><td><input type="text" id="comp-subject" /></td>
+					</tr>
+				</table>
+				<br/>
+				<label>Message:</label><br/>
+				<textarea id="comp-body" rows="20"></textarea>
+
+				<button type="button" onclick="onSend()">Send</button>
+				<button type="button" onclick="composition_dialog.hide()">Close</button>
+			</div>
+			<div id="keypair">
+					<label for="public-key">Public Key:</label><br/>
+					<textarea id="public-key"></textarea><br/>
+					<label for="private-key">Private Key:</label><br/>
+					<textarea id="private-key"></textarea><br/>
+
+					<button type="button" name="save" onclick="onSaveKeyPair()">Save</button>
+					<button type="button" name="generate" onclick="keypair_generate_dialog.show()">Generate</button>
+					<button type="button" name="close" onclick="keypair_generate_dialog.done()">Close</button>
+			</div>
+			<div id="keypair-generate">
+				<table>
+					<tr>
+						<td><label>RSA key size in bits:</label></td>
+						<td><input type="text" id="key-bits" value="4096" /> <span class="about">Leave this the default if not sure.</span></td>
+					</tr><tr>
+						<td><label>Passphrase:</label></td>
+						<td><input type="password" id="key-passphrase" /> <span class="about">This passphrase is used to store your private key privately.</span></td>
+					</tr><tr>
+						<td></td><td><button onclick="generateKeyPair()">Generate</button></td>
+					</tr>
+				</table>
+
+				<div id="keypair-generate-loader" class="loading" style="display: none;">Generating key pair, please wait...</div>
+			</div>
+			<div id="passphrase-dialog">
+				<label for="passphrase">Passphrase:</label> <input type="password" id="passphrase" /><br/>
+				<input type="checkbox" id="remember-passphrase" /> <label for="remember-passphrase">Remember for this session</label><br/>
+				<button type="button" onclick="onPassphraseUse()">Use</button>
+			</div>
+		</div>
+
+		<!--<script type="text/javascript" src="/static/openpgp.js"></script>-->
+		<script type="text/javascript" src="/static/mime.js"></script>
+		<script type="text/javascript" src="/static/osms.js"></script>
+		<script type="text/javascript" src="/static/template.js"></script>
+
+		<script type="text/javascript" src="/static/main.js"></script>
+	</body>
+</html>
+

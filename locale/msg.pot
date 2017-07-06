@@ -1,0 +1,331 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-08 11:56+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: www/skill/__init__.py:17 www/skill/__init__.py:28
+msgid "About Me"
+msgstr ""
+
+#: www/skill/__init__.py:17 www/skill/__init__.py:119
+msgid "Request Quotation"
+msgstr ""
+
+#: www/skill/__init__.py:17 www/skill/__init__.py:38
+msgid "Portofolio"
+msgstr ""
+
+#: www/skill/__init__.py:67
+msgid "from scratch"
+msgstr ""
+
+#: www/skill/__init__.py:68
+msgid "adjustment(s)"
+msgstr ""
+
+#: www/skill/__init__.py:69
+msgid "expand upon"
+msgstr ""
+
+#: www/skill/__init__.py:70
+msgid "other"
+msgstr ""
+
+#: www/skill/__init__.py:74
+msgid "hourly rate"
+msgstr ""
+
+#: www/skill/__init__.py:75
+msgid "fixed price"
+msgstr ""
+
+#: www/skill/__init__.py:95
+#, python-format
+msgid ""
+"Your %s quotation request will be reviewed. You should receive a response "
+"soon."
+msgstr ""
+
+#: www/skill/__init__.py:95
+msgid "Quote Requested"
+msgstr ""
+
+#: www/skill/__init__.py:107
+msgid "Quotation Request Send"
+msgstr ""
+
+#: www/skill/__init__.py:115 template/home.html:2
+msgid "website"
+msgstr ""
+
+#: www/skill/__init__.py:115
+msgid "application"
+msgstr ""
+
+#: www/webdesign/__init__.py:20 template/webdesign/quote.html:8
+#: template/webdesign/about.html:7
+msgid "Search Engine Optimization (SEO)"
+msgstr ""
+
+#: www/webdesign/__init__.py:22 template/webdesign/about.html:8
+msgid "Multiple Languages"
+msgstr ""
+
+#: www/webdesign/__init__.py:24 template/webdesign/quote.html:10
+msgid "Help setting up the website"
+msgstr ""
+
+#: www/webdesign/__init__.py:26
+msgid "Manage server"
+msgstr ""
+
+#: template/contact.html:4 template/skill/quote.html:4
+#: template/development/email/request_sent.txt:1
+#: template/webdesign/email/request_sent.txt:1
+msgid "Email address"
+msgstr ""
+
+#: template/contact.html:9
+msgid "Subject"
+msgstr ""
+
+#: template/contact.html:14
+msgid "Message"
+msgstr ""
+
+#: template/skill/quote.html:9
+msgid "Type of assigment"
+msgstr ""
+
+#: template/skill/quote.html:11
+msgid "Built website from scratch"
+msgstr ""
+
+#: template/skill/quote.html:12
+msgid "Adjustments need to be made"
+msgstr ""
+
+#: template/skill/quote.html:13
+msgid "Additional features need to be created"
+msgstr ""
+
+#: template/skill/quote.html:18
+msgid "Payment Option"
+msgstr ""
+
+#: template/skill/quote.html:20
+msgid "By hourly rate"
+msgstr ""
+
+#: template/skill/quote.html:21
+msgid "For a fixed price"
+msgstr ""
+
+#: template/skill/quote.html:27
+msgid ""
+"A fixed price provides the safety of not going over budget, but an hourly "
+"rate should in most cases cost less. With a fixed price I need to "
+"overestimate the price a little bit, for my own sake."
+msgstr ""
+
+#: template/skill/quote.html:34
+msgid "Details of the"
+msgstr ""
+
+#: template/skill/quote.html:34
+msgid ", your wishes/requirements and anything related to it"
+msgstr ""
+
+#: template/skill/request_sent.html:1
+msgid ""
+"Your quotation request has been sent. You should receive an email with your "
+"request details soon. If not, the given email address might have been wrong. "
+"For any further questions,"
+msgstr ""
+
+#: template/skill/request_sent.html:2
+msgid "contact me"
+msgstr ""
+
+#: template/message_sent.html:1
+msgid "Your message has been sent. You should hear from me soon."
+msgstr ""
+
+#: template/development/email/request_sent.txt:2
+#: template/webdesign/email/request_sent.txt:2
+msgid "Assignment type"
+msgstr ""
+
+#: template/development/email/request_sent.txt:3
+#: template/webdesign/email/request_sent.txt:3
+msgid "Payment Options"
+msgstr ""
+
+#: template/development/email/request_sent.txt:4
+#: template/webdesign/email/request_sent.txt:10
+msgid "Details"
+msgstr ""
+
+#: template/development/portofolio.html:1
+msgid ""
+"My portofolio is currently empty. Your application may just be the first "
+"entry in here!"
+msgstr ""
+
+#: template/development/about.html:2
+msgid ""
+"Have an idea that needs to be developed into a fully working application? "
+"I'll create anything."
+msgstr ""
+
+#: template/development/about.html:5
+msgid "Possibilities"
+msgstr ""
+
+#: template/development/about.html:7
+msgid "Any (web)application"
+msgstr ""
+
+#: template/development/about.html:8
+msgid "Automation"
+msgstr ""
+
+#: template/development/about.html:9
+msgid "Bots"
+msgstr ""
+
+#: template/development/about.html:10
+msgid "Finishing a project already in progress"
+msgstr ""
+
+#: template/webdesign/email/request_sent.txt:4
+msgid "Additional Features"
+msgstr ""
+
+#: template/webdesign/email/request_sent.txt:7
+msgid "Is a web application"
+msgstr ""
+
+#: template/webdesign/email/request_sent.txt:7
+msgid "yes"
+msgstr ""
+
+#: template/webdesign/email/request_sent.txt:8
+msgid "no"
+msgstr ""
+
+#: template/webdesign/portofolio.html:1
+msgid ""
+"My portofolio is currently empty. Your website may just be the first entry "
+"in here!"
+msgstr ""
+
+#: template/webdesign/quote.html:6 template/webdesign/about.html:5
+msgid "Optional Features"
+msgstr ""
+
+#: template/webdesign/quote.html:9
+msgid "Support for multiple languages"
+msgstr ""
+
+#: template/webdesign/quote.html:9
+msgid ""
+"If other languages than english or dutch are required, translations need to "
+"be provided."
+msgstr ""
+
+#: template/webdesign/quote.html:10
+msgid "I will set your website up until everything is working as is expected"
+msgstr ""
+
+#: template/webdesign/quote.html:11
+msgid "Server management"
+msgstr ""
+
+#: template/webdesign/quote.html:11
+msgid ""
+"I will help you find a suitable webserver and fix things when the website is "
+"down."
+msgstr ""
+
+#: template/webdesign/quote.html:16
+msgid "Is it a web application?"
+msgstr ""
+
+#: template/webdesign/quote.html:17
+msgid ""
+"If your website is provides a service (such as an online store, an "
+"administration application, etc.), you should check this box."
+msgstr ""
+
+#: template/webdesign/about.html:2
+msgid ""
+"Want a fully working website? Have special needs? I'll design and create a "
+"website for you!"
+msgstr ""
+
+#: template/webdesign/about.html:9
+msgid "Server Management"
+msgstr ""
+
+#: template/webdesign/about.html:13
+msgid "Request a Quotation"
+msgstr ""
+
+#: template/webdesign/about.html:13
+msgid ""
+"for more information about pricing or just to request a change/update to "
+"your current website"
+msgstr ""
+
+#: template/footer.html:2
+msgid "Languages"
+msgstr ""
+
+#: template/footer.html:10
+msgid "Contact"
+msgstr ""
+
+#: template/footer.html:12
+msgid "Webform"
+msgstr ""
+
+#: template/footer.html:14
+msgid "PGP Public Key"
+msgstr ""
+
+#: template/home.html:2
+msgid "Welcome to Dreaming.one. For all your"
+msgstr ""
+
+#: template/home.html:2
+msgid "and"
+msgstr ""
+
+#: template/home.html:2
+msgid "software development"
+msgstr ""
+
+#: template/home.html:2
+msgid "needs!"
+msgstr ""
+
+#: template/home.html:6
+msgid ""
+"This website is currently still under construction, but fully functional "
+"nevertheless."
+msgstr ""

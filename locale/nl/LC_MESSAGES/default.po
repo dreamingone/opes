@@ -1,0 +1,363 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Dreaming.one\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-02-08 11:56+0100\n"
+"PO-Revision-Date: 2017-02-08 12:07+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.6.10\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Send"
+msgstr "Verstuur"
+
+msgid "Submit"
+msgstr "Verstuur"
+
+#: www/skill/__init__.py:17 www/skill/__init__.py:28
+msgid "About Me"
+msgstr "Over Mij"
+
+#: www/skill/__init__.py:17 www/skill/__init__.py:119
+msgid "Request Quotation"
+msgstr "Offerte Aanvragen"
+
+#: www/skill/__init__.py:17 www/skill/__init__.py:38
+msgid "Portofolio"
+msgstr "Portofolio"
+
+#: www/skill/__init__.py:67
+msgid "from scratch"
+msgstr "van de grond af aan"
+
+#: www/skill/__init__.py:68
+msgid "adjustment(s)"
+msgstr "aanpassing(en)"
+
+#: www/skill/__init__.py:69
+msgid "expand upon"
+msgstr "uitbreiding"
+
+#: www/skill/__init__.py:70
+msgid "other"
+msgstr "anders"
+
+#: www/skill/__init__.py:74
+msgid "hourly rate"
+msgstr "uurtarrief"
+
+#: www/skill/__init__.py:75
+msgid "fixed price"
+msgstr "vaste prijs"
+
+#: www/skill/__init__.py:95
+#, python-format
+msgid ""
+"Your %s quotation request will be reviewed. You should receive a response "
+"soon."
+msgstr "Uw %s offerte aanvraag zal bekenen worden. U zal spoedig van me horen."
+
+#: www/skill/__init__.py:95
+msgid "Quote Requested"
+msgstr "Offerte Aangevraagd"
+
+#: www/skill/__init__.py:107
+msgid "Quotation Request Send"
+msgstr "Offerte Aanvraag Verzonden"
+
+#: www/skill/__init__.py:115 template/home.html:2
+msgid "website"
+msgstr "website"
+
+#: www/skill/__init__.py:115
+msgid "application"
+msgstr "applicatie"
+
+#: www/webdesign/__init__.py:20 template/webdesign/quote.html:8
+#: template/webdesign/about.html:7
+msgid "Search Engine Optimization (SEO)"
+msgstr "Search Engine Optimalizatie (SEO)"
+
+#: www/webdesign/__init__.py:22 template/webdesign/about.html:8
+msgid "Multiple Languages"
+msgstr "Meerdere Talen"
+
+#: www/webdesign/__init__.py:24 template/webdesign/quote.html:10
+msgid "Help setting up the website"
+msgstr "Hulp bij het opzetten van de website"
+
+#: www/webdesign/__init__.py:26
+msgid "Manage server"
+msgstr "Server beheer"
+
+#: template/contact.html:4 template/skill/quote.html:4
+#: template/development/email/request_sent.txt:1
+#: template/webdesign/email/request_sent.txt:1
+msgid "Email address"
+msgstr "Email adres"
+
+#: template/contact.html:9
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: template/contact.html:14
+msgid "Message"
+msgstr "Bericht"
+
+#: template/skill/quote.html:9
+msgid "Type of assigment"
+msgstr "Soort opdracht"
+
+#: template/skill/quote.html:11
+msgid "Built website from scratch"
+msgstr "Bouw website van de grond af aan"
+
+#: template/skill/quote.html:12
+msgid "Adjustments need to be made"
+msgstr "Er moeten aanpassingen gedaan worden"
+
+#: template/skill/quote.html:13
+msgid "Additional features need to be created"
+msgstr "Uitbreiding van bestaande software"
+
+#: template/skill/quote.html:18
+msgid "Payment Option"
+msgstr "Betaal Optie"
+
+#: template/skill/quote.html:20
+msgid "By hourly rate"
+msgstr "Per uurtarief"
+
+#: template/skill/quote.html:21
+msgid "For a fixed price"
+msgstr "Voor een vaste prijs"
+
+#: template/skill/quote.html:27
+msgid ""
+"A fixed price provides the safety of not going over budget, but an hourly "
+"rate should in most cases cost less. With a fixed price I need to "
+"overestimate the price a little bit, for my own sake."
+msgstr ""
+"Een vaste prijs geeft zekerheid, maar een uurtarief moet in de meeste "
+"gevallen goedkoper uitkomen.Met een vaste prijs moet ik een beetje "
+"overschatten."
+
+#: template/skill/quote.html:34
+msgid "Details of the"
+msgstr "Beschrijving van de"
+
+#: template/skill/quote.html:34
+msgid ", your wishes/requirements and anything related to it"
+msgstr ", uw wensen/eisen en alles verwant aan de opdracht"
+
+#: template/skill/request_sent.html:1
+msgid ""
+"Your quotation request has been sent. You should receive an email with your "
+"request details soon. If not, the given email address might have been wrong. "
+"For any further questions,"
+msgstr ""
+"Uw offerte aanvraag is verstuurt. U zult binnenkort een email ontvangen. Zo "
+"niet, dan is mogelijk het ingevulde email adres verkeerd. For verdere vragen,"
+
+#: template/skill/request_sent.html:2
+msgid "contact me"
+msgstr "neem contact met me op"
+
+#: template/message_sent.html:1
+msgid "Your message has been sent. You should hear from me soon."
+msgstr "Uw bericht is verstuurd. U zult snel van mij horen."
+
+#: template/development/email/request_sent.txt:2
+#: template/webdesign/email/request_sent.txt:2
+msgid "Assignment type"
+msgstr "Soort opdracht"
+
+#: template/development/email/request_sent.txt:3
+#: template/webdesign/email/request_sent.txt:3
+msgid "Payment Options"
+msgstr "Betaal Opties"
+
+#: template/development/email/request_sent.txt:4
+#: template/webdesign/email/request_sent.txt:10
+msgid "Details"
+msgstr "Beschrijving"
+
+#: template/development/portofolio.html:1
+msgid ""
+"My portofolio is currently empty. Your application may just be the first "
+"entry in here!"
+msgstr ""
+"Mijn portofolio is momenteel leeg. Uw applicatie zou zojuist de eerste "
+"intrede kunnen zijn!"
+
+#: template/development/about.html:2
+msgid ""
+"Have an idea that needs to be developed into a fully working application? "
+"I'll create anything."
+msgstr ""
+"Heeft u een idee dat uitgewerkt moet worden in een volledig werkende "
+"applicatie? Ik bouw van alles!"
+
+#: template/development/about.html:5
+msgid "Possibilities"
+msgstr "Mogelijkheden"
+
+#: template/development/about.html:7
+msgid "Any (web)application"
+msgstr "Elke (web)applicatie"
+
+#: template/development/about.html:8
+msgid "Automation"
+msgstr "Automatisering"
+
+#: template/development/about.html:9
+msgid "Bots"
+msgstr "Bots"
+
+#: template/development/about.html:10
+msgid "Finishing a project already in progress"
+msgstr "Een bestaand project afmaken"
+
+#: template/webdesign/email/request_sent.txt:4
+msgid "Additional Features"
+msgstr "Extra Mogelijkheden"
+
+#: template/webdesign/email/request_sent.txt:7
+msgid "Is a web application"
+msgstr "Is een web applicatie"
+
+#: template/webdesign/email/request_sent.txt:7
+msgid "yes"
+msgstr "ja"
+
+#: template/webdesign/email/request_sent.txt:8
+msgid "no"
+msgstr "Nee"
+
+#: template/webdesign/portofolio.html:1
+msgid ""
+"My portofolio is currently empty. Your website may just be the first entry "
+"in here!"
+msgstr ""
+"Mijn portofolio is momenteel leeg. Uw website zou zojuist de eerste kunnen "
+"zijn!"
+
+#: template/webdesign/quote.html:6 template/webdesign/about.html:5
+msgid "Optional Features"
+msgstr "Optionele Mogelijkheden"
+
+#: template/webdesign/quote.html:9
+msgid "Support for multiple languages"
+msgstr "Ondersteuning voor meerdere talen"
+
+#: template/webdesign/quote.html:9
+msgid ""
+"If other languages than english or dutch are required, translations need to "
+"be provided."
+msgstr ""
+"Als andere talen dan Nederlands of Engels vereist zijn, moeten vertalingen "
+"zelf voorzien worden."
+
+#: template/webdesign/quote.html:10
+msgid "I will set your website up until everything is working as is expected"
+msgstr "Ik zal uw website opzetten totdat alles werkt naar verwachtingen"
+
+#: template/webdesign/quote.html:11
+msgid "Server management"
+msgstr "Server beheer"
+
+#: template/webdesign/quote.html:11
+msgid ""
+"I will help you find a suitable webserver and fix things when the website is "
+"down."
+msgstr ""
+"I zal u helpen een geschikte webserver te vinden en problemen oplossen als "
+"de website offline is."
+
+#: template/webdesign/quote.html:16
+msgid "Is it a web application?"
+msgstr "Is het een web applicatie?"
+
+#: template/webdesign/quote.html:17
+msgid ""
+"If your website is provides a service (such as an online store, an "
+"administration application, etc.), you should check this box."
+msgstr ""
+"Als uw website een soort dienst verstrekt (zoals een webwinkel, een "
+"administratieve toepassing, etc.), dan moet je dit aanvinken"
+
+#: template/webdesign/about.html:2
+msgid ""
+"Want a fully working website? Have special needs? I'll design and create a "
+"website for you!"
+msgstr ""
+"Wilt u een volledig werkende website? Heeft u speciale wensen? Ik ontwerp en "
+"bouw een website voor u!"
+
+#: template/webdesign/about.html:9
+msgid "Server Management"
+msgstr "Server Beheer"
+
+#: template/webdesign/about.html:13
+msgid "Request a Quotation"
+msgstr "Offerte Aanvragen"
+
+#: template/webdesign/about.html:13
+msgid ""
+"for more information about pricing or just to request a change/update to "
+"your current website"
+msgstr ""
+"voor meer informatie over prijzen of om een verandering/update aan te vragen "
+"voor uw huidige website"
+
+#: template/footer.html:2
+msgid "Languages"
+msgstr "Talen"
+
+#: template/footer.html:10
+msgid "Contact"
+msgstr "Contact"
+
+#: template/footer.html:12
+msgid "Webform"
+msgstr "Webformulier"
+
+#: template/footer.html:14
+msgid "PGP Public Key"
+msgstr "PGP Publieke Sleutel"
+
+#: template/home.html:2
+msgid "Welcome to Dreaming.one. For all your"
+msgstr "Welkom bij Dreaming.one. Voor al uw"
+
+#: template/home.html:2
+msgid "and"
+msgstr "en"
+
+#: template/home.html:2
+msgid "software development"
+msgstr "software ontwikkeling"
+
+#: template/home.html:2
+msgid "needs!"
+msgstr "benodigheden!"
+
+#: template/home.html:6
+msgid ""
+"This website is currently still under construction, but fully functional "
+"nevertheless."
+msgstr ""
+"Deze website zit momenteel nog in de verbouwing, maar verder werkt ie wel al."
+
+#~ msgid "Welcome to OneDreamer.nl!"
+#~ msgstr "Welkom bij OneDreamer.nl!"

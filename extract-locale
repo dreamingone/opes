@@ -1,0 +1,4 @@
+#!/bin/bash
+find www -name "*.py" > /tmp/gettext-files
+find template -name "*.*" >> /tmp/gettext-files
+xgettext --files-from=/tmp/gettext-files -o locale/msg.pot -L Python -kt
