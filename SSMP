@@ -1,4 +1,0 @@
-The Super Secret Messaging Protocol (SSMP) is built to provide:
-* Forward-Secrecy: The leakage of a private key will only given an attacker the possibility to decrypt future messages through a MitM attack. Anything previously encrypted will still be safe.
-* No identity information revealed to third-party viewers from the message itself
-* Deniable Authentication
