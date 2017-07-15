@@ -569,8 +569,9 @@ function load() {
 
 	var ecdsa = { name: 'ECDSA', namedCurve: 'P-521', hash: { name: 'SHA-256' } }
 	var ecdh = { name: 'ECDH', namedCurve: 'P-521' }
-	var aes = { name: 'AES-CBC', iv: new Uint8Array( 16 ) }
-	window.crypto.getRandomValues( aes.iv )
+	var iv = new Uint8Array( 16 )
+	//window.crypto.getRandomValues( iv )
+	var aes = { name: 'AES-CBC', iv: iv }
 console.log( aes.iv );
 	var sha256 = { name: 'SHA-256' }
 	fsmp.generateCertificate( ecdsa, ecdh, aes, sha256, sha256 ).then(function( peer1 ) {
@@ -580,16 +581,22 @@ console.log('peer2')
 console.log( peer2.certificate.encryptionAlgorithm )
 			fsmp.constructInitiationPacket( peer2.certificate, peer1.certificate, peer1.key, [peer1.certificate], fsmp.stringToBytes('Hallo, wilt u een sessie met mij starten?'), 1024 ).then(function( result ) {
 				var packet = result.packet
+console.log('packet')
+console.log(packet)
 				var sessionCookie = result.sessionCookie
-				console.log(sessionCookie)
+console.log(sessionCookie)
 				packet.export().then(function( buffer ) {
-
-					console.log( buffer )
+console.log('encrypted')
+					console.log( buffer.bytes )
 					var armor = fsmp.encodeArmor( 'packet', buffer.bytes )
 					alert( armor )
 
 					var decoded = fsmp.decodeArmor( 'packet', armor )
+console.log('decoded')
+console.log( decoded )
 					// TODO: import
+console.log('peer2')
+console.log( peer2.certificate.encryptionAlgorithm )
 					fsmp.openPacket( decoded, peer2.certificate, peer2.key ).then(function( packet ) {
 
 						

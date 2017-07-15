@@ -101,7 +101,7 @@ fsmp.Buffer = function( data ) {
 				index += 1
 			}
 			else if ( item == null )
-				throw new Error('item at index ' + i + ' is null')
+				throw new Error('item at index ' + i + ' is null - ' +(typeof(item)) )
 		}
 
 		return buffer
@@ -236,15 +236,21 @@ fsmp.InitiationBody.prototype.export = function() {
 	return new Promise(function( success, fail ) {
 		var bufferList = []
 
+		// The receipient's fingerprint
+		bufferList.push( self.peerFingerprint.byteLength )
+		bufferList.push( self.peerFingerprint )
+
 		// Export the certificate chain and optionally the fingerprint
+		bufferList.push( self.certificateChain.length )
 		if (self.certificateChain.length == 0) {
-			bufferList.push( 0 )
 			bufferList.push( self.fingerprint )
 		}
 		else {
 			self.exportCertificateChain().then(function( chainBuffer ) {
 
 				bufferList.push( chainBuffer )
+		console.log( 'chainBuffer' )
+		console.log( chainBuffer )
 
 			}).catch(function( error ) { fail( error ) })
 		}
@@ -269,7 +275,7 @@ fsmp.InitiationBody.prototype.exportCertificateChain = function() {
 		else {
 			self._exportCertificateChain( self.certificateChain ).then(function( bufferList ) {
 
-				success( new fsmp.Buffer( [self.certificateChain.length].concat(bufferList) ) )
+				success( new fsmp.Buffer( bufferList ) )
 
 			}).catch(function( error ) { fail( error ) })
 		}
@@ -314,7 +320,10 @@ fsmp.KeyExchangeHeader.prototype.export = function() {
 	return new Promise(function( success, fail ) {
 
 		window.crypto.subtle.exportKey( 'raw', self.nextEphemeralPublicKey ).then(function( keyData ) {
-
+console.log('exported nextEphemeralPublicKey')
+console.log( keyData )
+console.log('exported signature')
+console.log( self.signature )
 			success( new fsmp.Buffer([ keyData, self.signature ]) )
 
 		}).catch(function( error ) { fail( error ) })
@@ -385,9 +394,9 @@ fsmp.Packet.prototype.export = function() {
 			var sessionCookie = self.sessionCookie.length != 0 ? self.sessionCookie : []
 
 			var buffer = new fsmp.Buffer([
-				self.version,
+				self.version,	// First byte indicates the version
 				self.sessionCookie.length,	// Use one byte to specify the session cookie's length
-				sessionCookie,
+				sessionCookie,	// 
 				keyExchangeHeaderBuffer,
 				self.ciphertext
 			])
@@ -586,6 +595,21 @@ fsmp.allZeros = function( data ) {
 	return true
 }
 
+fsmp.buffersEqual = function( buffer1, buffer2 ) {
+	var a = new Uint8Array( buffer1 )
+	var b = new Uint8Array( buffer2 )
+	
+	if ( a.byteLength != b.byteLength )
+		return false
+
+	for ( var i = 0; i < a.byteLength; i++ ) {
+		if ( a[i] != b[i] )
+			return false
+	}
+
+	return true
+}
+
 fsmp.bytesToString = function( data ) {
 	var string = ''
 
@@ -643,13 +667,14 @@ fsmp.constructInitiationPacket = function( peerCertificate, ownCertificate, cert
 							// Construct the body of the packet
 							fsmp.hmac( peerCertificate.hashAlgorithm, key, message ).then(function( sessionCookie ) {
 								var ownFingerprint = certificateChain.length == 0 ? ownCertificate.fingerprint : null
-								console.log( 'padding' )
-								console.log( paddedMsgLen )
+								console.log( 'PEERCERTIFICATE' )
+								console.log( new Uint8Array(peerCertificate.fingerprint) )
 								var body = new fsmp.InitiationBody( peerCertificate.fingerprint, certificateChain, ownFingerprint, sessionCookie, paddedMsgLen, message )
 
 								// Encrypt the body
 								fsmp.encryptExported( body, peerCertificate.encryptionAlgorithm, key, iv ).then(function( ciphertext ) {
-
+console.log('constructed ciphertext')
+console.log(ciphertext)
 									// Construct our initiation packet
 									var packet = new fsmp.InitiationPacket( keyExchangeHeader, ciphertext )
 									success({ packet: packet, sessionCookie: sessionCookie })
@@ -891,22 +916,27 @@ fsmp.hmac = function( hashAlgorithm, key, message ) {
 	})
 }
 
-fsmp.importInitiationBody = function( data, certificate ) { console.log('log'); console.log( data ); alert('hoi')
+fsmp.importInitiationBody = function( data, certificate ) {
 	var reader = new fsmp.Reader( data )
-
 	var hashLen = fsmp.hashLength( certificate.hashAlgorithm )
 
-	var receipientFingerprint = reader.read( hashLen )
-	if ( receipientFingerprint != certificate.fingerprint )
+	var fingerprintLength = reader.readByte()
+	var receipientFingerprint = reader.read( fingerprintLength )
+	console.log( 'fingerprintLength' )
+	console.log( fingerprintLength )
+	if ( !fsmp.buffersEqual( receipientFingerprint, certificate.fingerprint ) )
 		throw new fsmp.exc.IncorrectReceipient()
 
 	var certificateListSize = reader.readByte()
+	console.log('listsize')
+	console.log(certificateListSize)
 	var certificateList = []
 	for (var i = 0; i < certificateListSize; i++) {
 		// TODO: Convert to promise!
 		var certificate = fsmp.readCertificate( reader )
 		certificateList.push( certificate )
 	}
+	console.log('asdfasdf5')
 
 	var fingerprint = null
 	if ( certificateListSize == 0 )
@@ -921,10 +951,13 @@ fsmp.importInitiationBody = function( data, certificate ) { console.log('log'); 
 // All the session handling is dealt with
 // Returns a body, be it a regular or initiation body
 fsmp.openPacket = function( data, certificate, certificateKey ) {
+	
 	var reader = new fsmp.Reader( data )
 
-	var sniffed = fsmp.sniffPacket( reader )
-	var cookie = sniffed.cookie
+	var smell = fsmp.sniffPacket( reader )
+	if ( smell.version > 0 )
+		throw new Error( 'Only version 0 is supported' )
+	var cookie = smell.cookie
 	if ( cookie.length != 0 )	// TODO: Find the session of this cookie and use it to open the packet
 		throw new Error( 'Regular messages are not implemented yet' )
 
@@ -941,6 +974,8 @@ console.log( encryptionAlgorithm )
 
 	var keyExchangeHeader = fsmp.readKeyExchangeHeader( reader, keyExchangeAlgorithm, signatureAlgorithm )
 	var ciphertext = reader.readAll()
+console.log('ephemeralPublicKey')
+console.log( keyExchangeHeader.ephemeralPublicKey )
 
 	return new Promise(function( success, fail ) {
 		console.log( window.crypto.subtle.importKey )
@@ -949,15 +984,15 @@ console.log( encryptionAlgorithm )
 			fsmp.deriveCryptoKey( keyExchangeAlgorithm, encryptionAlgorithm, hashAlgorithm, ephemeralPublicKey, ephemeralPrivateKey ).then(function( sharedKey ) {
 				console.log(sharedKey)
 				console.log( encryptionAlgorithm )
-				console.log( ciphertext )
-				window.crypto.subtle.decrypt( encryptionAlgorithm, sharedKey, ciphertext ).then(function( bodyData ) {
+				console.log( ciphertext );
+				window.crypto.subtle.decrypt( encryptionAlgorithm, sharedKey, ciphertext ).then(function( bodyData ) {alert('gelukt')
 				console.log(bodyData)
-					if ( cookie.length != 0 ) {
+					if ( cookie.length != 0 ) {console.log('hierzo');
 						var body = fsmp.importBody( bodyData )
 						success( body )
 					}
 					else {
-						var body = fsmp.importInitiationBody( bodyData )
+						var body = fsmp.importInitiationBody( bodyData, certificate )
 						success( body )
 					}
 
@@ -976,6 +1011,19 @@ fsmp.publicKeyLength = function( algorithm ) {
 			return 97;
 		else if ( algorithm.namedCurve == 'P256' )
 			return 65;
+	}
+	// TODO: Correct these lengths...
+}
+
+fsmp.signatureLength = function( algorithm ) {
+
+	if ( algorithm.name == "ECDSA" ) {
+		if ( algorithm.namedCurve == 'P-521' )
+			return 132;
+		else if ( algorithm.namedCurve == 'P384' )
+			return 96;
+		else if ( algorithm.namedCurve == 'P256' )
+			return 64;
 	}
 	// TODO: Correct these lengths...
 }
@@ -1036,7 +1084,9 @@ fsmp.readBody = function( reader, hashLength ) {
 
 fsmp.readKeyExchangeHeader = function( reader, keyExchangeAlgorithm, signatureAlgorithm ) {
 	var ephemeralPublicKeyLen = fsmp.publicKeyLength( keyExchangeAlgorithm )
-	var signatureLen = fsmp.hashLength( signatureAlgorithm.hash )
+console.log( signatureAlgorithm )
+	var signatureLen = fsmp.signatureLength( signatureAlgorithm )
+console.log('read lengths: ' + ephemeralPublicKeyLen + ', ' + signatureLen )
 
 	var ephemeralPublicKey = reader.read( ephemeralPublicKeyLen )
 	var signature = reader.read( signatureLen )
